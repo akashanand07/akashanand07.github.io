@@ -1,50 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akash Anand | Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:#f8fafc;
+}
+
+/* Container */
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+padding:80px 0;
+}
+
+/* Hero */
+.hero{
+text-align:center;
+padding-top:120px;
+}
+
+.hero h1{
+font-size:52px;
+font-weight:700;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero h2{
+font-size:20px;
+font-weight:400;
+margin-top:15px;
+color:#cbd5e1;
+}
+
+.hero p{
+margin-top:25px;
+max-width:750px;
+margin-left:auto;
+margin-right:auto;
+color:#94a3b8;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 28px;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* Section Title */
+.section-title{
+font-size:32px;
+margin-bottom:40px;
+position:relative;
+display:inline-block;
+}
+
+.section-title::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-10px;
+width:60%;
+height:4px;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+}
+
+/* Cards */
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:16px;
+margin-bottom:30px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#38bdf8;
+}
+
+.card p{
+color:#cbd5e1;
+margin-bottom:10px;
+}
+
+/* Skills */
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.skills span{
+padding:10px 18px;
+background:rgba(99,102,241,0.15);
+border:1px solid rgba(99,102,241,0.3);
+border-radius:25px;
+font-size:14px;
+}
+
+/* Footer */
+footer{
+text-align:center;
+padding:40px 0;
+margin-top:60px;
+background:rgba(255,255,255,0.05);
+}
+
+footer p{
+color:#94a3b8;
+}
+
+</style>
 </head>
 <body>
 
-    <div class="container">
+<!-- HERO -->
+<section class="hero container">
+<h1>Akash Anand</h1>
+<h2>Data Analyst | Revenue & Financial Analytics | Fintech Insights</h2>
 
-        <h1>Akash Anand</h1>
-        <h3>Aspiring Data Analyst</h3>
+<p>
+Data Analyst experienced in analyzing 100K+ transactional records,
+building revenue engines, and delivering KPI-driven business insights using
+Excel, SQL, and Python. Strong focus on financial modeling, pricing standardization,
+and market sentiment analytics.
+</p>
 
-        <hr>
+<a href="#" class="btn">Download Resume</a>
+</section>
 
-        <h2>About Me</h2>
-        <p>
-            I am learning data analytics and building projects
-            using SQL, Python, and Machine Learning.
-        </p>
+<!-- PROJECTS -->
+<section class="container">
+<h2 class="section-title">Featured Projects</h2>
 
-        <h2>Skills</h2>
-        <ul>
-            <li>SQL</li>
-            <li>Python</li>
-            <li>Excel</li>
-            <li>Machine Learning</li>
-        </ul>
+<div class="card">
+<h3>Revenue & Settlement Analytics</h3>
+<p><strong>Problem:</strong> Inconsistent pricing structures causing inaccurate revenue reporting.</p>
+<p><strong>Data:</strong> 125K+ payment transactions with multi-layer pricing models.</p>
+<p><strong>Analysis:</strong> Cleaned nulls, standardized flat & percentage pricing, built revenue engine calculating ERP Revenue, Net Margin & Gross Settlement.</p>
+<p><strong>Impact:</strong> Developed KPI dashboard tracking GMV, revenue split & partner contribution for operational decisions.</p>
+</div>
 
-        <h2>Projects</h2>
+<div class="card">
+<h3>Bitcoin Fear & Greed Index Analysis</h3>
+<p><strong>Problem:</strong> Crypto markets are sentiment-driven and volatile.</p>
+<p><strong>Data:</strong> Historical Bitcoin price + Fear & Greed sentiment index.</p>
+<p><strong>Analysis:</strong> Merged datasets, identified extreme fear/greed zones, studied volatility & price reversal patterns.</p>
+<p><strong>Impact:</strong> Built sentiment-based framework for behavioral finance & crypto analytics insights.</p>
+</div>
 
-        <h3>📊 Sales Data Analysis</h3>
-        <p>
-            Analyzed sales data using SQL and Excel to find trends,
-            top-performing products, and monthly growth.
-        </p>
+<div class="card">
+<h3>PhonePe Pulse Dashboard</h3>
+<p><strong>Focus:</strong> Regional digital payment growth analysis using SQL & dashboard reporting.</p>
+</div>
 
-        <h3>🤖 AI vs Human Text Classifier</h3>
-        <p>
-            Built a machine learning model to classify AI-generated
-            and human-written text using Python.
-        </p>
+<div class="card">
+<h3>Traffic Accident Data Analysis</h3>
+<p><strong>Focus:</strong> Python-based EDA to identify anomaly patterns and risk clusters.</p>
+</div>
 
-        <h2>Contact</h2>
-        <p>Email: akash@email.com</p>
+</section>
 
-    </div>
+<!-- SKILLS -->
+<section class="container">
+<h2 class="section-title">Technical Skills</h2>
+<div class="skills">
+<span>Advanced Excel</span>
+<span>SQL</span>
+<span>Python (Pandas, NumPy)</span>
+<span>Power BI</span>
+<span>KPI Tracking</span>
+<span>Financial Modeling</span>
+<span>Revenue Analysis</span>
+<span>EDA</span>
+<span>Dashboard Development</span>
+</div>
+</section>
+
+<!-- EDUCATION -->
+<section class="container">
+<h2 class="section-title">Education</h2>
+<div class="card">
+<p><strong>Minor in Data Science & Machine Learning</strong> – IIT Mandi</p>
+<p>Diploma in Pharmacy – 2024</p>
+<p>Data Visualization Virtual Internship (Star Performer) – Saint Louis University</p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Akash Anand | Designed for Data Analyst Roles</p>
+</footer>
 
 </body>
 </html>
