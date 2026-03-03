@@ -7,21 +7,46 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
-body{background:linear-gradient(135deg,#0f172a,#020617);color:#f8fafc;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:#f8fafc;
+}
 
 /* NAVBAR */
 nav{
-position:fixed;width:100%;top:0;
+position:fixed;
+width:100%;
+top:0;
 background:rgba(15,23,42,0.85);
 backdrop-filter:blur(12px);
-display:flex;justify-content:space-between;
-padding:18px 8%;z-index:1000;
+display:flex;
+justify-content:space-between;
+padding:18px 8%;
+z-index:1000;
 }
-nav a{color:#cbd5e1;text-decoration:none;margin-left:25px;font-weight:500;}
-nav a:hover{color:#38bdf8;}
 
-section{padding:110px 8%;}
+nav a{
+color:#cbd5e1;
+text-decoration:none;
+margin-left:25px;
+font-weight:500;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+section{
+padding:110px 8%;
+}
 
 /* HERO */
 .hero{
@@ -32,6 +57,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 }
+
 .hero h1{
 font-size:64px;
 font-weight:800;
@@ -39,20 +65,49 @@ background:linear-gradient(90deg,#38bdf8,#6366f1);
 -webkit-background-clip:text;
 color:transparent;
 }
-.hero h2{margin-top:15px;color:#94a3b8;}
-.hero p{margin-top:25px;max-width:750px;color:#cbd5e1;line-height:1.6;}
 
-.socials{margin-top:25px;}
-.socials a{margin:0 12px;color:#cbd5e1;text-decoration:none;font-weight:500;}
-.socials a:hover{color:#38bdf8;}
-
-.section-title{
-font-size:32px;margin-bottom:40px;
-position:relative;display:inline-block;
+.hero h2{
+margin-top:15px;
+color:#94a3b8;
 }
+
+.hero p{
+margin-top:25px;
+max-width:750px;
+color:#cbd5e1;
+line-height:1.6;
+}
+
+.socials{
+margin-top:25px;
+}
+
+.socials a{
+margin:0 12px;
+color:#cbd5e1;
+text-decoration:none;
+font-weight:500;
+}
+
+.socials a:hover{
+color:#38bdf8;
+}
+
+/* TITLES */
+.section-title{
+font-size:32px;
+margin-bottom:40px;
+position:relative;
+display:inline-block;
+}
+
 .section-title::after{
-content:"";position:absolute;left:0;bottom:-10px;
-width:60%;height:4px;
+content:"";
+position:absolute;
+left:0;
+bottom:-10px;
+width:60%;
+height:4px;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 }
 
@@ -66,11 +121,30 @@ margin-bottom:30px;
 border:1px solid rgba(255,255,255,0.1);
 transition:0.4s;
 }
-.card:hover{transform:translateY(-8px);border-color:#38bdf8;}
-.card h3{color:#38bdf8;margin-bottom:12px;}
-.card p{color:#cbd5e1;margin-bottom:8px;line-height:1.6;}
 
-.skills{display:flex;flex-wrap:wrap;gap:12px;}
+.card:hover{
+transform:translateY(-8px);
+border-color:#38bdf8;
+}
+
+.card h3{
+color:#38bdf8;
+margin-bottom:12px;
+}
+
+.card p{
+color:#cbd5e1;
+margin-bottom:8px;
+line-height:1.6;
+}
+
+/* SKILLS */
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+}
+
 .skills span{
 padding:10px 18px;
 background:rgba(99,102,241,0.15);
@@ -78,12 +152,15 @@ border-radius:25px;
 font-size:14px;
 }
 
+/* CTA */
 .cta{
 text-align:center;
 background:rgba(255,255,255,0.05);
-padding:60px;border-radius:20px;
+padding:60px;
+border-radius:20px;
 }
 
+/* FOOTER */
 footer{
 text-align:center;
 padding:40px 0;
@@ -92,9 +169,16 @@ color:#94a3b8;
 }
 
 /* Scroll reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:1s;}
-.reveal.active{opacity:1;transform:translateY(0);}
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
 
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
 </style>
 </head>
 
@@ -111,10 +195,10 @@ color:#94a3b8;
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
 <h1>Akash Anand</h1>
-<h2><span id="typing"></span></h2>
-
+<h2>Data Analyst (Fresher) | SQL | Excel | Python | KPI & Revenue Analytics</h2>
 <p>
 Fresher Data Analyst with hands-on experience in SQL, Excel, and Python.
 Recognized as Star Performer during virtual internship for structured KPI reporting
@@ -127,6 +211,7 @@ and analytical clarity.
 </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="reveal">
 <h2 class="section-title">About Me</h2>
 <p>
@@ -136,6 +221,7 @@ building logical computations, and delivering decision-support insights.
 </p>
 </section>
 
+<!-- INTERNSHIP -->
 <section id="internship" class="reveal">
 <h2 class="section-title">Virtual Internship</h2>
 <div class="card">
@@ -145,42 +231,50 @@ building logical computations, and delivering decision-support insights.
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="reveal">
 <h2 class="section-title">Featured Projects</h2>
 
 <div class="card">
 <h3>Revenue & Settlement Analytics</h3>
-<p><strong>Dataset:</strong> 125K+ transactions</p>
-<p>Built SQL-based revenue computation engine, standardized multi-layer pricing models, and created KPI dashboards for margin tracking.</p>
+<p><strong>Business Problem:</strong> Revenue inconsistencies due to multi-layer pricing structures.</p>
+<p><strong>Tools:</strong> SQL, Excel</p>
+<p>Standardized pricing logic, computed revenue KPIs, and built dashboard for settlement tracking.</p>
 </div>
 
 <div class="card">
 <h3>AI vs Human Writing Detection (Capstone)</h3>
-<p>Developed NLP classification model using TF-IDF and Scikit-learn. Performed preprocessing, feature engineering, and evaluated performance using confusion matrix.</p>
+<p><strong>Tools:</strong> Python, TF-IDF, Scikit-learn</p>
+<p>Built NLP classification model with preprocessing, feature engineering, and model evaluation.</p>
 </div>
 
 <div class="card">
 <h3>Bitcoin Fear & Greed Sentiment Analysis</h3>
-<p>Merged BTC historical price data with sentiment index to analyze volatility patterns during extreme fear and greed phases.</p>
+<p><strong>Tools:</strong> Python (Pandas)</p>
+<p>Analyzed volatility trends by merging BTC historical price data with sentiment index.</p>
 </div>
 
 <div class="card">
 <h3>PhonePe Pulse Data Analysis</h3>
-<p>Performed SQL-based regional transaction growth analysis and structured dashboard reporting.</p>
+<p><strong>Tools:</strong> SQL</p>
+<p>Examined regional digital payment growth patterns and structured dashboard reporting.</p>
 </div>
 
 <div class="card">
 <h3>UPI Transaction Analytics</h3>
-<p>Conducted exploratory data analysis to identify usage trends and regional digital payment performance indicators.</p>
+<p><strong>Tools:</strong> Excel, SQL</p>
+<p>Performed exploratory analysis to identify digital payment usage trends.</p>
 </div>
 
 <div class="card">
 <h3>Traffic Accident Data Analysis</h3>
-<p>Used Python (Pandas) for large-scale EDA to detect anomaly patterns and risk clusters.</p>
+<p><strong>Tools:</strong> Python (Pandas, NumPy)</p>
+<p>Conducted EDA to identify risk clusters and anomaly patterns.</p>
 </div>
 
 </section>
 
+<!-- SKILLS -->
 <section id="skills" class="reveal">
 <h2 class="section-title">Core Skills</h2>
 <div class="skills">
@@ -194,11 +288,13 @@ building logical computations, and delivering decision-support insights.
 </div>
 </section>
 
+<!-- CTA -->
 <section class="cta reveal">
 <h2>Open to Data Analyst Opportunities</h2>
-<p>Actively seeking entry-level Data Analyst roles where I can apply structured analytical skills and contribute to data-driven decision-making.</p>
+<p>Actively seeking entry-level Data Analyst roles to apply structured analytical skills.</p>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="reveal">
 <h2 class="section-title">Contact</h2>
 <p>Email: akashanand33qq@gmail.com</p>
@@ -210,19 +306,6 @@ building logical computations, and delivering decision-support insights.
 </footer>
 
 <script>
-// Typing effect
-const text = "Data Analyst | SQL | Excel | Python | KPI & Revenue Analytics";
-let i = 0;
-function typing(){
-if(i < text.length){
-document.getElementById("typing").innerHTML += text.charAt(i);
-i++;
-setTimeout(typing,50);
-}
-}
-typing();
-
-// Scroll reveal
 window.addEventListener('scroll', function() {
 var reveals = document.querySelectorAll('.reveal');
 for (var i = 0; i < reveals.length; i++) {
