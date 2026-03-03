@@ -4,226 +4,212 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akash Anand | Data Analyst</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
+body{background:#0f172a;color:#f8fafc;}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
+nav{
+position:fixed;width:100%;top:0;
+background:rgba(15,23,42,0.85);
+backdrop-filter:blur(12px);
+display:flex;justify-content:space-between;
+padding:18px 8%;z-index:1000;
 }
+nav a{color:#cbd5e1;text-decoration:none;margin-left:25px;font-weight:500;}
+nav a:hover{color:#38bdf8;}
 
-body{
-background:linear-gradient(135deg,#0f172a,#020617);
-color:#f8fafc;
-}
-
-/* Container */
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:80px 0;
-}
-
-/* Hero */
-.hero{
-text-align:center;
-padding-top:120px;
-}
-
+section{padding:110px 8%;}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
 .hero h1{
-font-size:52px;
-font-weight:700;
+font-size:64px;font-weight:800;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
--webkit-background-clip:text;
-color:transparent;
+-webkit-background-clip:text;color:transparent;
+}
+.hero h2{margin-top:15px;color:#94a3b8;}
+.hero p{margin-top:25px;max-width:700px;color:#cbd5e1;line-height:1.6;}
+
+.socials{margin-top:25px;}
+.socials a{margin:0 12px;color:#cbd5e1;text-decoration:none;font-weight:500;}
+.socials a:hover{color:#38bdf8;}
+
+.section-title{
+font-size:32px;margin-bottom:40px;
+position:relative;display:inline-block;
+}
+.section-title::after{
+content:"";position:absolute;left:0;bottom:-10px;
+width:60%;height:4px;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
 }
 
-.hero h2{
-font-size:20px;
-font-weight:400;
-margin-top:15px;
-color:#cbd5e1;
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(18px);
+padding:30px;border-radius:18px;
+margin-bottom:30px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.4s;
 }
+.card:hover{transform:translateY(-8px);border-color:#38bdf8;}
 
-.hero p{
-margin-top:25px;
-max-width:750px;
-margin-left:auto;
-margin-right:auto;
-color:#94a3b8;
-}
+.card h3{color:#38bdf8;margin-bottom:12px;}
+.card p{color:#cbd5e1;margin-bottom:8px;line-height:1.6;}
 
 .btn{
 display:inline-block;
-margin-top:30px;
-padding:14px 28px;
-background:linear-gradient(90deg,#38bdf8,#6366f1);
-color:white;
-border-radius:8px;
+margin-top:12px;
+padding:8px 16px;
+border:1px solid #38bdf8;
+border-radius:20px;
 text-decoration:none;
-font-weight:600;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-}
-
-/* Section Title */
-.section-title{
-font-size:32px;
-margin-bottom:40px;
-position:relative;
-display:inline-block;
-}
-
-.section-title::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-10px;
-width:60%;
-height:4px;
-background:linear-gradient(90deg,#38bdf8,#6366f1);
-}
-
-/* Cards */
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:16px;
-margin-bottom:30px;
-transition:0.3s;
-border:1px solid rgba(255,255,255,0.1);
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.card h3{
-margin-bottom:15px;
 color:#38bdf8;
+font-size:14px;
 }
+.btn:hover{background:#38bdf8;color:#0f172a;}
 
-.card p{
-color:#cbd5e1;
-margin-bottom:10px;
-}
-
-/* Skills */
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-}
-
+.skills{display:flex;flex-wrap:wrap;gap:12px;}
 .skills span{
 padding:10px 18px;
 background:rgba(99,102,241,0.15);
-border:1px solid rgba(99,102,241,0.3);
 border-radius:25px;
 font-size:14px;
 }
 
-/* Footer */
-footer{
+.cta{
 text-align:center;
-padding:40px 0;
-margin-top:60px;
 background:rgba(255,255,255,0.05);
+padding:60px;border-radius:20px;
 }
 
-footer p{
+footer{
+text-align:center;padding:40px 0;
+background:rgba(255,255,255,0.05);
 color:#94a3b8;
 }
 
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:1s;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
 </style>
 </head>
+
 <body>
 
-<!-- HERO -->
-<section class="hero container">
+<nav>
+<div><strong>Akash Anand</strong></div>
+<div>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
 <h1>Akash Anand</h1>
-<h2>Data Analyst | Revenue & Financial Analytics | Fintech Insights</h2>
+<h2><span id="typing"></span></h2>
 
 <p>
-Data Analyst experienced in analyzing 100K+ transactional records,
-building revenue engines, and delivering KPI-driven business insights using
-Excel, SQL, and Python. Strong focus on financial modeling, pricing standardization,
-and market sentiment analytics.
+Fresher Data Analyst with hands-on experience in SQL, Excel, and Python.
+Recognized as Star Performer during virtual internship for structured KPI reporting
+and analytical clarity.
 </p>
 
-<a href="Akash_Anand_Resume.pdf" class="btn" download>Download Resume</a>
+<div class="socials">
+<a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank">LinkedIn</a>
+<a href="https://github.com/akashanand07" target="_blank">GitHub</a>
+</div>
 </section>
 
-<!-- PROJECTS -->
-<section class="container">
+<section id="about" class="reveal">
+<h2 class="section-title">About Me</h2>
+<p>
+I specialize in revenue analytics, KPI computation, and structured SQL-based data extraction.
+My approach focuses on understanding business objectives, cleaning datasets,
+building logical computations, and delivering decision-support insights.
+</p>
+</section>
+
+<section id="projects" class="reveal">
 <h2 class="section-title">Featured Projects</h2>
 
 <div class="card">
 <h3>Revenue & Settlement Analytics</h3>
-<p><strong>Problem:</strong> Inconsistent pricing structures causing inaccurate revenue reporting.</p>
-<p><strong>Data:</strong> 125K+ payment transactions with multi-layer pricing models.</p>
-<p><strong>Analysis:</strong> Cleaned nulls, standardized flat & percentage pricing, built revenue engine calculating ERP Revenue, Net Margin & Gross Settlement.</p>
-<p><strong>Impact:</strong> Developed KPI dashboard tracking GMV, revenue split & partner contribution for operational decisions.</p>
+<p><strong>Dataset:</strong> 125K+ transactions</p>
+<p>Built SQL-based revenue computation engine, standardized pricing models, and created KPI dashboards for margin tracking.</p>
+<a href="https://github.com/akashanand07" target="_blank" class="btn">View Code</a>
 </div>
 
 <div class="card">
-<h3>Bitcoin Fear & Greed Index Analysis</h3>
-<p><strong>Problem:</strong> Crypto markets are sentiment-driven and volatile.</p>
-<p><strong>Data:</strong> Historical Bitcoin price + Fear & Greed sentiment index.</p>
-<p><strong>Analysis:</strong> Merged datasets, identified extreme fear/greed zones, studied volatility & price reversal patterns.</p>
-<p><strong>Impact:</strong> Built sentiment-based framework for behavioral finance & crypto analytics insights.</p>
+<h3>AI vs Human Writing Detection</h3>
+<p>Developed NLP classification model using TF-IDF and Scikit-learn. Evaluated performance using accuracy & confusion matrix.</p>
+<a href="https://github.com/akashanand07" target="_blank" class="btn">View Code</a>
 </div>
 
 <div class="card">
-<h3>PhonePe Pulse Dashboard</h3>
-<p><strong>Focus:</strong> Regional digital payment growth analysis using SQL & dashboard reporting.</p>
-</div>
-
-<div class="card">
-<h3>Traffic Accident Data Analysis</h3>
-<p><strong>Focus:</strong> Python-based EDA to identify anomaly patterns and risk clusters.</p>
+<h3>Bitcoin Fear & Greed Sentiment Analysis</h3>
+<p>Analyzed market sentiment impact on BTC volatility by merging historical price data with sentiment index.</p>
+<a href="https://github.com/akashanand07" target="_blank" class="btn">View Code</a>
 </div>
 
 </section>
 
-<!-- SKILLS -->
-<section class="container">
-<h2 class="section-title">Technical Skills</h2>
+<section id="skills" class="reveal">
+<h2 class="section-title">Core Skills</h2>
 <div class="skills">
-<span>Advanced Excel</span>
-<span>SQL</span>
+<span>SQL (Joins, Aggregations)</span>
+<span>Excel (Pivot Tables, KPIs)</span>
 <span>Python (Pandas, NumPy)</span>
-<span>Power BI</span>
-<span>KPI Tracking</span>
-<span>Financial Modeling</span>
-<span>Revenue Analysis</span>
+<span>Data Cleaning</span>
 <span>EDA</span>
-<span>Dashboard Development</span>
+<span>Dashboard Reporting</span>
 </div>
 </section>
 
-<!-- EDUCATION -->
-<section class="container">
-<h2 class="section-title">Education</h2>
-<div class="card">
-<p><strong>Minor in Data Science & Machine Learning</strong> – IIT Mandi</p>
-<p>Diploma in Pharmacy – 2024</p>
-<p>Data Visualization Virtual Internship (Star Performer) – Saint Louis University</p>
-</div>
+<section class="cta reveal">
+<h2>Open to Data Analyst Opportunities</h2>
+<p>Actively seeking entry-level Data Analyst roles where I can contribute analytical skills and grow in data-driven environments.</p>
+</section>
+
+<section id="contact" class="reveal">
+<h2 class="section-title">Contact</h2>
+<p>Email: akashanand33qq@gmail.com</p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank">View Profile</a></p>
 </section>
 
 <footer>
-<p>© 2026 Akash Anand | Designed for Data Analyst Roles</p>
+© 2026 Akash Anand | Data Analyst Portfolio
 </footer>
+
+<script>
+// Typing animation
+const text = "Data Analyst | SQL | Excel | Python | KPI & Revenue Analytics";
+let i = 0;
+function typing(){
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,50);
+}
+}
+typing();
+
+// Scroll reveal
+window.addEventListener('scroll', function() {
+var reveals = document.querySelectorAll('.reveal');
+for (var i = 0; i < reveals.length; i++) {
+var windowHeight = window.innerHeight;
+var elementTop = reveals[i].getBoundingClientRect().top;
+var elementVisible = 100;
+if (elementTop < windowHeight - elementVisible) {
+reveals[i].classList.add('active');
+}
+}
+});
+</script>
 
 </body>
 </html>
