@@ -8,8 +8,9 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
-body{background:#0f172a;color:#f8fafc;}
+body{background:linear-gradient(135deg,#0f172a,#020617);color:#f8fafc;}
 
+/* NAVBAR */
 nav{
 position:fixed;width:100%;top:0;
 background:rgba(15,23,42,0.85);
@@ -21,14 +22,25 @@ nav a{color:#cbd5e1;text-decoration:none;margin-left:25px;font-weight:500;}
 nav a:hover{color:#38bdf8;}
 
 section{padding:110px 8%;}
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
 .hero h1{
-font-size:64px;font-weight:800;
+font-size:64px;
+font-weight:800;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
--webkit-background-clip:text;color:transparent;
+-webkit-background-clip:text;
+color:transparent;
 }
 .hero h2{margin-top:15px;color:#94a3b8;}
-.hero p{margin-top:25px;max-width:700px;color:#cbd5e1;line-height:1.6;}
+.hero p{margin-top:25px;max-width:750px;color:#cbd5e1;line-height:1.6;}
 
 .socials{margin-top:25px;}
 .socials a{margin:0 12px;color:#cbd5e1;text-decoration:none;font-weight:500;}
@@ -44,30 +56,19 @@ width:60%;height:4px;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 }
 
+/* CARD */
 .card{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(18px);
-padding:30px;border-radius:18px;
+padding:30px;
+border-radius:18px;
 margin-bottom:30px;
 border:1px solid rgba(255,255,255,0.1);
 transition:0.4s;
 }
 .card:hover{transform:translateY(-8px);border-color:#38bdf8;}
-
 .card h3{color:#38bdf8;margin-bottom:12px;}
 .card p{color:#cbd5e1;margin-bottom:8px;line-height:1.6;}
-
-.btn{
-display:inline-block;
-margin-top:12px;
-padding:8px 16px;
-border:1px solid #38bdf8;
-border-radius:20px;
-text-decoration:none;
-color:#38bdf8;
-font-size:14px;
-}
-.btn:hover{background:#38bdf8;color:#0f172a;}
 
 .skills{display:flex;flex-wrap:wrap;gap:12px;}
 .skills span{
@@ -84,7 +85,8 @@ padding:60px;border-radius:20px;
 }
 
 footer{
-text-align:center;padding:40px 0;
+text-align:center;
+padding:40px 0;
 background:rgba(255,255,255,0.05);
 color:#94a3b8;
 }
@@ -102,6 +104,7 @@ color:#94a3b8;
 <div><strong>Akash Anand</strong></div>
 <div>
 <a href="#about">About</a>
+<a href="#internship">Internship</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
@@ -133,26 +136,47 @@ building logical computations, and delivering decision-support insights.
 </p>
 </section>
 
+<section id="internship" class="reveal">
+<h2 class="section-title">Virtual Internship</h2>
+<div class="card">
+<h3>Data Visualization & Analytics – Star Performer</h3>
+<p>Completed 1-month virtual internship focused on KPI dashboards, trend analysis, and structured reporting.</p>
+<p>Awarded Star Performer badge for analytical accuracy and clarity in data presentation.</p>
+</div>
+</section>
+
 <section id="projects" class="reveal">
 <h2 class="section-title">Featured Projects</h2>
 
 <div class="card">
 <h3>Revenue & Settlement Analytics</h3>
 <p><strong>Dataset:</strong> 125K+ transactions</p>
-<p>Built SQL-based revenue computation engine, standardized pricing models, and created KPI dashboards for margin tracking.</p>
-<a href="https://github.com/akashanand07" target="_blank" class="btn">View Code</a>
+<p>Built SQL-based revenue computation engine, standardized multi-layer pricing models, and created KPI dashboards for margin tracking.</p>
 </div>
 
 <div class="card">
-<h3>AI vs Human Writing Detection</h3>
-<p>Developed NLP classification model using TF-IDF and Scikit-learn. Evaluated performance using accuracy & confusion matrix.</p>
-<a href="https://github.com/akashanand07" target="_blank" class="btn">View Code</a>
+<h3>AI vs Human Writing Detection (Capstone)</h3>
+<p>Developed NLP classification model using TF-IDF and Scikit-learn. Performed preprocessing, feature engineering, and evaluated performance using confusion matrix.</p>
 </div>
 
 <div class="card">
 <h3>Bitcoin Fear & Greed Sentiment Analysis</h3>
-<p>Analyzed market sentiment impact on BTC volatility by merging historical price data with sentiment index.</p>
-<a href="https://github.com/akashanand07" target="_blank" class="btn">View Code</a>
+<p>Merged BTC historical price data with sentiment index to analyze volatility patterns during extreme fear and greed phases.</p>
+</div>
+
+<div class="card">
+<h3>PhonePe Pulse Data Analysis</h3>
+<p>Performed SQL-based regional transaction growth analysis and structured dashboard reporting.</p>
+</div>
+
+<div class="card">
+<h3>UPI Transaction Analytics</h3>
+<p>Conducted exploratory data analysis to identify usage trends and regional digital payment performance indicators.</p>
+</div>
+
+<div class="card">
+<h3>Traffic Accident Data Analysis</h3>
+<p>Used Python (Pandas) for large-scale EDA to detect anomaly patterns and risk clusters.</p>
 </div>
 
 </section>
@@ -161,17 +185,18 @@ building logical computations, and delivering decision-support insights.
 <h2 class="section-title">Core Skills</h2>
 <div class="skills">
 <span>SQL (Joins, Aggregations)</span>
-<span>Excel (Pivot Tables, KPIs)</span>
+<span>Excel (Pivot Tables, KPI Dashboards)</span>
 <span>Python (Pandas, NumPy)</span>
 <span>Data Cleaning</span>
 <span>EDA</span>
+<span>Revenue Analytics</span>
 <span>Dashboard Reporting</span>
 </div>
 </section>
 
 <section class="cta reveal">
 <h2>Open to Data Analyst Opportunities</h2>
-<p>Actively seeking entry-level Data Analyst roles where I can contribute analytical skills and grow in data-driven environments.</p>
+<p>Actively seeking entry-level Data Analyst roles where I can apply structured analytical skills and contribute to data-driven decision-making.</p>
 </section>
 
 <section id="contact" class="reveal">
@@ -185,7 +210,7 @@ building logical computations, and delivering decision-support insights.
 </footer>
 
 <script>
-// Typing animation
+// Typing effect
 const text = "Data Analyst | SQL | Excel | Python | KPI & Revenue Analytics";
 let i = 0;
 function typing(){
