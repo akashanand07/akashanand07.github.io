@@ -4,181 +4,48 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Akash Anand | Data Analyst</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
+body{background:linear-gradient(135deg,#0f172a,#020617);color:#f8fafc;}
 
-body{
-background:linear-gradient(135deg,#0f172a,#020617);
-color:#f8fafc;
-}
+nav{position:fixed;width:100%;top:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);display:flex;justify-content:space-between;padding:18px 8%;z-index:1000;}
+nav a{color:#cbd5e1;text-decoration:none;margin-left:25px;font-weight:500;}
+nav a:hover{color:#38bdf8;}
 
-/* NAVBAR */
-nav{
-position:fixed;
-width:100%;
-top:0;
-background:rgba(15,23,42,0.85);
-backdrop-filter:blur(12px);
-display:flex;
-justify-content:space-between;
-padding:18px 8%;
-z-index:1000;
-}
+section{padding:110px 8%;}
 
-nav a{
-color:#cbd5e1;
-text-decoration:none;
-margin-left:25px;
-font-weight:500;
-}
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
+.hero h1{font-size:64px;font-weight:800;background:linear-gradient(90deg,#38bdf8,#6366f1);-webkit-background-clip:text;color:transparent;}
+.hero h2{margin-top:15px;color:#94a3b8;}
+.hero p{margin-top:25px;max-width:750px;color:#cbd5e1;line-height:1.6;}
 
-nav a:hover{
-color:#38bdf8;
-}
+.socials{margin-top:25px;}
+.socials a{margin:0 12px;color:#cbd5e1;text-decoration:none;font-weight:500;}
+.socials a:hover{color:#38bdf8;}
 
-section{
-padding:110px 8%;
-}
+.section-title{font-size:32px;margin-bottom:40px;position:relative;display:inline-block;}
+.section-title::after{content:"";position:absolute;left:0;bottom:-10px;width:60%;height:4px;background:linear-gradient(90deg,#38bdf8,#6366f1);}
 
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
+.card{background:rgba(255,255,255,0.05);backdrop-filter:blur(18px);padding:30px;border-radius:18px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);transition:0.4s;}
+.card:hover{transform:translateY(-8px);border-color:#38bdf8;}
+.card h3{color:#38bdf8;margin-bottom:12px;}
+.card p{color:#cbd5e1;margin-bottom:8px;line-height:1.6;}
 
-.hero h1{
-font-size:64px;
-font-weight:800;
-background:linear-gradient(90deg,#38bdf8,#6366f1);
--webkit-background-clip:text;
-color:transparent;
-}
+.card a{display:inline-block;margin-top:10px;color:#38bdf8;text-decoration:none;font-weight:600;}
+.card a:hover{text-decoration:underline;}
 
-.hero h2{
-margin-top:15px;
-color:#94a3b8;
-}
+.skills{display:flex;flex-wrap:wrap;gap:12px;}
+.skills span{padding:10px 18px;background:rgba(99,102,241,0.15);border-radius:25px;font-size:14px;}
 
-.hero p{
-margin-top:25px;
-max-width:750px;
-color:#cbd5e1;
-line-height:1.6;
-}
+.cta{text-align:center;background:rgba(255,255,255,0.05);padding:60px;border-radius:20px;}
 
-.socials{
-margin-top:25px;
-}
+footer{text-align:center;padding:40px 0;background:rgba(255,255,255,0.05);color:#94a3b8;}
 
-.socials a{
-margin:0 12px;
-color:#cbd5e1;
-text-decoration:none;
-font-weight:500;
-}
-
-.socials a:hover{
-color:#38bdf8;
-}
-
-/* TITLES */
-.section-title{
-font-size:32px;
-margin-bottom:40px;
-position:relative;
-display:inline-block;
-}
-
-.section-title::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-10px;
-width:60%;
-height:4px;
-background:linear-gradient(90deg,#38bdf8,#6366f1);
-}
-
-/* CARD */
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(18px);
-padding:30px;
-border-radius:18px;
-margin-bottom:30px;
-border:1px solid rgba(255,255,255,0.1);
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-border-color:#38bdf8;
-}
-
-.card h3{
-color:#38bdf8;
-margin-bottom:12px;
-}
-
-.card p{
-color:#cbd5e1;
-margin-bottom:8px;
-line-height:1.6;
-}
-
-/* SKILLS */
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-}
-
-.skills span{
-padding:10px 18px;
-background:rgba(99,102,241,0.15);
-border-radius:25px;
-font-size:14px;
-}
-
-/* CTA */
-.cta{
-text-align:center;
-background:rgba(255,255,255,0.05);
-padding:60px;
-border-radius:20px;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:40px 0;
-background:rgba(255,255,255,0.05);
-color:#94a3b8;
-}
-
-/* Scroll reveal */
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
+.reveal{opacity:0;transform:translateY(40px);transition:1s;}
+.reveal.active{opacity:1;transform:translateY(0);}
 </style>
 </head>
 
@@ -195,14 +62,12 @@ transform:translateY(0);
 </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
 <h1>Akash Anand</h1>
-<h2>Data Analyst (Fresher) | SQL | Excel | Python | KPI & Revenue Analytics</h2>
+<h2>Data Analyst | SQL | Excel | Python | KPI & Revenue Analytics</h2>
 <p>
-Fresher Data Analyst with hands-on experience in SQL, Excel, and Python.
-Recognized as Star Performer during virtual internship for structured KPI reporting
-and analytical clarity.
+Data Analyst focused on revenue analytics, KPI computation, and business-driven insights.
+Experienced in SQL, Excel, and Python with strong analytical thinking and problem-solving skills.
 </p>
 
 <div class="socials">
@@ -211,23 +76,20 @@ and analytical clarity.
 </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="reveal">
 <h2 class="section-title">About Me</h2>
 <p>
-I specialize in revenue analytics, KPI computation, and structured SQL-based data extraction.
-My approach focuses on understanding business objectives, cleaning datasets,
-building logical computations, and delivering decision-support insights.
+I specialize in data-driven decision making, KPI reporting, and revenue analytics.
+My workflow includes understanding business problems, cleaning data, performing analysis, and delivering actionable insights.
 </p>
 </section>
 
-<!-- INTERNSHIP -->
 <section id="internship" class="reveal">
 <h2 class="section-title">Virtual Internship</h2>
 <div class="card">
 <h3>Data Visualization & Analytics – Star Performer</h3>
-<p>Completed 1-month virtual internship focused on KPI dashboards, trend analysis, and structured reporting.</p>
-<p>Awarded Star Performer badge for analytical accuracy and clarity in data presentation.</p>
+<p>Completed internship focused on dashboards, KPI reporting, and trend analysis.</p>
+<p>Recognized for analytical clarity and structured reporting.</p>
 </div>
 </section>
 
@@ -236,73 +98,68 @@ building logical computations, and delivering decision-support insights.
 <h2 class="section-title">Featured Projects</h2>
 
 <div class="card">
-<h3>Revenue & Settlement Analytics</h3>
-<p><strong>Business Problem:</strong> Revenue inconsistencies due to multi-layer pricing structures.</p>
-<p><strong>Tools:</strong> SQL, Excel</p>
-<p>Standardized pricing logic, computed revenue KPIs, and built dashboard for settlement tracking.</p>
+<h3>Myntra Sales & Revenue Analysis</h3>
+<p><strong>Tools:</strong> Excel, SQL</p>
+<p>Analyzed revenue trends, category contribution, and KPI metrics to identify high-performing segments.</p>
+<a href="https://github.com/akashanand07/myntra-sales-analysis" target="_blank">🔗 View Project</a>
 </div>
 
 <div class="card">
-<h3>AI vs Human Writing Detection (Capstone)</h3>
-<p><strong>Tools:</strong> Python, TF-IDF, Scikit-learn</p>
-<p>Built NLP classification model with preprocessing, feature engineering, and model evaluation.</p>
-</div>
-
-<div class="card">
-<h3>Bitcoin Fear & Greed Sentiment Analysis</h3>
-<p><strong>Tools:</strong> Python (Pandas)</p>
-<p>Analyzed volatility trends by merging BTC historical price data with sentiment index.</p>
+<h3>Conversion Funnel Analysis</h3>
+<p><strong>Tools:</strong> Excel, SQL</p>
+<p>Identified user drop-offs and optimized conversion stages to improve business performance.</p>
+<a href="https://github.com/akashanand07/conversion-funnel-analysis" target="_blank">🔗 View Project</a>
 </div>
 
 <div class="card">
 <h3>PhonePe Pulse Data Analysis</h3>
 <p><strong>Tools:</strong> SQL</p>
-<p>Examined regional digital payment growth patterns and structured dashboard reporting.</p>
+<p>Analyzed state-wise digital payment trends and growth patterns.</p>
+<a href="https://github.com/akashanand07/phonepe-analysis" target="_blank">🔗 View Project</a>
 </div>
 
 <div class="card">
-<h3>UPI Transaction Analytics</h3>
-<p><strong>Tools:</strong> Excel, SQL</p>
-<p>Performed exploratory analysis to identify digital payment usage trends.</p>
+<h3>AI vs Human Writing Detection</h3>
+<p><strong>Tools:</strong> Python, Machine Learning</p>
+<p>Developed NLP model to classify AI vs human-generated text.</p>
+<a href="https://github.com/akashanand07/ai-text-classifier" target="_blank">🔗 View Project</a>
 </div>
 
 <div class="card">
-<h3>Traffic Accident Data Analysis</h3>
-<p><strong>Tools:</strong> Python (Pandas, NumPy)</p>
-<p>Conducted EDA to identify risk clusters and anomaly patterns.</p>
+<h3>Bitcoin Sentiment Analysis</h3>
+<p><strong>Tools:</strong> Python</p>
+<p>Analyzed relationship between market sentiment and price volatility.</p>
+<a href="https://github.com/akashanand07/bitcoin-sentiment-analysis" target="_blank">🔗 View Project</a>
 </div>
 
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="reveal">
-<h2 class="section-title">Core Skills</h2>
+<h2 class="section-title">Skills</h2>
 <div class="skills">
-<span>SQL (Joins, Aggregations)</span>
-<span>Excel (Pivot Tables, KPI Dashboards)</span>
-<span>Python (Pandas, NumPy)</span>
+<span>SQL</span>
+<span>Excel</span>
+<span>Python</span>
+<span>Power BI</span>
 <span>Data Cleaning</span>
+<span>KPI Reporting</span>
 <span>EDA</span>
-<span>Revenue Analytics</span>
-<span>Dashboard Reporting</span>
 </div>
 </section>
 
-<!-- CTA -->
 <section class="cta reveal">
 <h2>Open to Data Analyst Opportunities</h2>
-<p>Actively seeking entry-level Data Analyst roles to apply structured analytical skills.</p>
+<p>Actively seeking entry-level roles.</p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="reveal">
 <h2 class="section-title">Contact</h2>
 <p>Email: akashanand33qq@gmail.com</p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank">View Profile</a></p>
+<p><a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank">LinkedIn Profile</a></p>
 </section>
 
 <footer>
-© 2026 Akash Anand | Data Analyst Portfolio
+© 2026 Akash Anand
 </footer>
 
 <script>
