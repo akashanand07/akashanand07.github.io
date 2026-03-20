@@ -75,40 +75,190 @@ Skilled in SQL, Excel, and Python for solving real-world data problems.
 </div>
 </section>
 
-<section id="about" class="reveal">
-<h2 class="section-title">About Me</h2>
-<p>
-I specialize in analyzing business data, identifying trends, and generating actionable insights.
-My work focuses on solving real-world problems using structured data analysis techniques.
-</p>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects" class="reveal">
-<h2 class="section-title">Key Business Projects</h2>
+<h2 class="section-title">Case Study Projects</h2>
 
+<!-- MYNTRA -->
 <div class="card">
-<h3>Myntra Product Intelligence Dashboard</h3>
-<p><strong>Tools:</strong> SQL, Python, Power BI</p>
-<p>Built an end-to-end analytics solution to analyze product performance, pricing trends, and category insights.</p>
+<h3>Myntra Product Intelligence Dashboard (End-to-End Data Analytics Project)</h3>
+
+<p><strong>Project Overview:</strong> 
+This is a complete end-to-end data analytics case study built on a large Myntra fashion dataset (~526,000 products). 
+The objective was to analyze product performance, pricing strategies, and customer engagement to generate actionable business insights.
+The project follows a full analytics pipeline including Data Cleaning (Python), Business Analysis (SQL), and Visualization (Power BI).
+</p>
+
+<p><strong>Business Objective:</strong></p>
+<ul>
+<li>Understand product and category performance in an online marketplace</li>
+<li>Analyze pricing and discount strategies</li>
+<li>Identify factors influencing customer engagement (ratings & reviews)</li>
+<li>Detect brand dominance and supply concentration</li>
+</ul>
+
+<p><strong>Dataset Information:</strong></p>
+<ul>
+<li>Source: Kaggle – Myntra Fashion Dataset</li>
+<li>Size: 526K+ products</li>
+<li>Major challenge: 300K+ missing values in ratings & reviews</li>
+</ul>
+
+<p><strong>Tools & Technologies:</strong> Python (Pandas, NumPy), SQL (MySQL), Power BI, Excel</p>
+
+<p><strong>Phase 1: Data Cleaning & Exploration (Python):</strong></p>
+<ul>
+<li>Removed irrelevant columns (URLs, descriptions)</li>
+<li>Handled 300K+ missing values</li>
+<li>Fixed pricing inconsistencies (original vs discounted price)</li>
+<li>Created new feature: Discount Percentage</li>
+<li>Performed EDA (outliers, distribution, correlation)</li>
+</ul>
+
+<p><strong>Phase 2: Data Analysis (SQL):</strong></p>
+<ul>
+<li>Category-wise product distribution analysis</li>
+<li>Brand dominance and inventory share</li>
+<li>Discount strategy comparison</li>
+<li>Relationship between price, discount, and ratings</li>
+<li>Used SQL window functions for ranking</li>
+</ul>
+
+<p><strong>Phase 3: Dashboard (Power BI):</strong></p>
+<ul>
+<li>KPI tracking: Total Products, Brands, Avg Ratings</li>
+<li>Category distribution and brand analysis</li>
+<li>Price vs Rating insights</li>
+<li>Customer engagement tracking</li>
+</ul>
+
+<p><strong>Key Insights:</strong></p>
+<ul>
+<li>Western Wear & Indian Wear drive highest engagement</li>
+<li>Few brands dominate marketplace inventory</li>
+<li>Discounts do not guarantee better ratings</li>
+<li>Ratings remain stable (~4.1–4.2)</li>
+<li>Premium segments controlled by fewer strong brands</li>
+</ul>
+
+<p><strong>Business Implications:</strong></p>
+<ul>
+<li>Opportunity for niche category expansion</li>
+<li>Focus on brand trust instead of heavy discounts</li>
+<li>Optimize inventory based on high-performing categories</li>
+</ul>
+
 <a href="https://github.com/akashanand07/myntra-product-intelligence-dashboard" target="_blank">🔗 View Project</a>
 </div>
 
+
+<!-- FUNNEL -->
 <div class="card">
 <h3>E-commerce Funnel & Conversion Analysis</h3>
-<p><strong>Tools:</strong> SQL, Excel</p>
-<p>Analyzed user journey across funnel stages and identified key drop-offs impacting conversions.</p>
+
+<p><strong>Project Overview:</strong> 
+This project analyzes user behavior across an e-commerce funnel to identify drop-offs, conversion rates, and revenue leakage using SQL and Power BI.
+</p>
+
+<p><strong>Problem Statement:</strong></p>
+<ul>
+<li>Identify major drop-off points in funnel</li>
+<li>Analyze conversion rates across stages</li>
+<li>Understand user purchase behavior</li>
+<li>Improve revenue through optimization</li>
+</ul>
+
+<p><strong>Dataset Overview:</strong></p>
+<ul>
+<li>~3 Million user interaction records</li>
+<li>Event types: Product View, Add to Cart, Purchase</li>
+</ul>
+
+<p><strong>Key Business Questions:</strong></p>
+<ul>
+<li>Where do users drop off?</li>
+<li>What are conversion rates?</li>
+<li>How long does purchase take?</li>
+<li>Which products have low conversion?</li>
+</ul>
+
+<p><strong>Analysis:</strong></p>
+<ul>
+<li>Tracked user journey across funnel stages</li>
+<li>Calculated stage-wise conversion rates</li>
+<li>Measured time-to-purchase</li>
+<li>Compared product performance</li>
+</ul>
+
+<p><strong>Key Insights:</strong></p>
+<ul>
+<li>97% drop at View → Cart stage</li>
+<li>Cart → Purchase conversion (~32%) strong</li>
+<li>Average purchase time ~95 hours</li>
+<li>High traffic ≠ high conversion</li>
+</ul>
+
+<p><strong>Business Recommendations:</strong></p>
+<ul>
+<li>Improve product page UX</li>
+<li>Use retargeting strategies</li>
+<li>Focus on high-converting products</li>
+<li>Optimize top-of-funnel engagement</li>
+</ul>
+
 <a href="https://github.com/akashanand07/E-commerce-Funnel-Conversion-Analysis-" target="_blank">🔗 View Project</a>
 </div>
 
+
+<!-- PHONEPE -->
 <div class="card">
 <h3>PhonePe Statewise Transaction Analytics</h3>
-<p><strong>Tools:</strong> SQL, Power BI</p>
-<p>Explored state-level transaction trends and digital payment growth patterns in India.</p>
+
+<p><strong>Project Overview:</strong> 
+Analyzed digital payment adoption trends across Indian states to understand transaction growth patterns and regional performance.
+</p>
+
+<p><strong>Problem Statement:</strong></p>
+<ul>
+<li>Understand regional adoption of digital payments</li>
+<li>Identify high-growth states</li>
+<li>Analyze transaction trends</li>
+</ul>
+
+<p><strong>Dataset:</strong></p>
+<ul>
+<li>State-wise transaction data</li>
+<li>Metrics: transaction volume, value, growth</li>
+</ul>
+
+<p><strong>Analysis:</strong></p>
+<ul>
+<li>Performed SQL aggregation</li>
+<li>Identified growth trends</li>
+<li>Visualized insights using Power BI</li>
+</ul>
+
+<p><strong>Key Insights:</strong></p>
+<ul>
+<li>Top states dominate transaction volume</li>
+<li>Tier-2 and Tier-3 regions growing rapidly</li>
+<li>Some states show saturation trends</li>
+</ul>
+
+<p><strong>Business Impact:</strong></p>
+<ul>
+<li>Supports regional expansion strategy</li>
+<li>Helps target high-growth markets</li>
+<li>Improves fintech decision-making</li>
+</ul>
+
 <a href="https://github.com/akashanand07/Phonepe-Statewise-Transaction-Analytics" target="_blank">🔗 View Project</a>
 </div>
 
 </section>
+I specialize in analyzing business data, identifying trends, and generating actionable insights.
+My work focuses on solving real-world problems using structured data analysis techniques.
+</p>
+
 
 <section id="skills" class="reveal">
 <h2 class="section-title">Skills</h2>
