@@ -18,33 +18,33 @@ nav a:hover{color:#38bdf8;}
 section{padding:110px 8%;}
 
 .hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-.hero h1{font-size:64px;font-weight:800;background:linear-gradient(90deg,#38bdf8,#6366f1);-webkit-background-clip:text;color:transparent;}
-.hero h2{margin-top:15px;color:#94a3b8;}
-.hero p{margin-top:25px;max-width:750px;color:#cbd5e1;line-height:1.6;}
+.hero h1{font-size:58px;font-weight:800;background:linear-gradient(90deg,#38bdf8,#6366f1);-webkit-background-clip:text;color:transparent;}
+.hero h2{margin-top:15px;color:#94a3b8;font-size:18px;}
+.hero p{margin-top:20px;max-width:650px;color:#cbd5e1;line-height:1.6;}
 
-.socials{margin-top:25px;}
-.socials a{margin:0 12px;color:#cbd5e1;text-decoration:none;font-weight:500;}
+.socials{margin-top:20px;}
+.socials a{margin:0 10px;color:#cbd5e1;text-decoration:none;}
 .socials a:hover{color:#38bdf8;}
 
-.section-title{font-size:32px;margin-bottom:40px;position:relative;display:inline-block;}
-.section-title::after{content:"";position:absolute;left:0;bottom:-10px;width:60%;height:4px;background:linear-gradient(90deg,#38bdf8,#6366f1);}
+.section-title{font-size:30px;margin-bottom:35px;position:relative;display:inline-block;}
+.section-title::after{content:"";position:absolute;left:0;bottom:-8px;width:60%;height:3px;background:linear-gradient(90deg,#38bdf8,#6366f1);}
 
-.card{background:rgba(255,255,255,0.05);backdrop-filter:blur(18px);padding:30px;border-radius:18px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1);transition:0.4s;}
-.card:hover{transform:translateY(-8px);border-color:#38bdf8;}
-.card h3{color:#38bdf8;margin-bottom:12px;}
-.card p{color:#cbd5e1;margin-bottom:8px;line-height:1.6;}
+.card{background:rgba(255,255,255,0.05);padding:25px;border-radius:16px;margin-bottom:25px;border:1px solid rgba(255,255,255,0.08);transition:0.3s;}
+.card:hover{transform:translateY(-6px);border-color:#38bdf8;}
+.card h3{color:#38bdf8;margin-bottom:10px;}
+.card p{color:#cbd5e1;margin-bottom:6px;font-size:14px;}
 
-.card a{display:inline-block;margin-top:10px;color:#38bdf8;text-decoration:none;font-weight:600;}
+.card a{display:inline-block;margin-top:10px;color:#38bdf8;font-weight:600;text-decoration:none;}
 .card a:hover{text-decoration:underline;}
 
-.skills{display:flex;flex-wrap:wrap;gap:12px;}
-.skills span{padding:10px 18px;background:rgba(99,102,241,0.15);border-radius:25px;font-size:14px;}
+.skills{display:flex;flex-wrap:wrap;gap:10px;}
+.skills span{padding:8px 14px;background:rgba(99,102,241,0.15);border-radius:20px;font-size:13px;}
 
-.cta{text-align:center;background:rgba(255,255,255,0.05);padding:60px;border-radius:20px;}
+.cta{text-align:center;background:rgba(255,255,255,0.05);padding:50px;border-radius:18px;}
 
-footer{text-align:center;padding:40px 0;background:rgba(255,255,255,0.05);color:#94a3b8;}
+footer{text-align:center;padding:30px 0;background:rgba(255,255,255,0.05);color:#94a3b8;}
 
-.reveal{opacity:0;transform:translateY(40px);transition:1s;}
+.reveal{opacity:0;transform:translateY(40px);transition:0.8s;}
 .reveal.active{opacity:1;transform:translateY(0);}
 </style>
 </head>
@@ -55,7 +55,6 @@ footer{text-align:center;padding:40px 0;background:rgba(255,255,255,0.05);color:
 <div><strong>Akash Anand</strong></div>
 <div>
 <a href="#about">About</a>
-<a href="#internship">Internship</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
@@ -64,10 +63,10 @@ footer{text-align:center;padding:40px 0;background:rgba(255,255,255,0.05);color:
 
 <section class="hero">
 <h1>Akash Anand</h1>
-<h2>Data Analyst | SQL | Excel | Python | KPI & Revenue Analytics</h2>
+<h2>Data Analyst | SQL | Excel | Python</h2>
 <p>
-Data Analyst focused on revenue analytics, KPI computation, and business-driven insights.
-Experienced in SQL, Excel, and Python with strong analytical thinking and problem-solving skills.
+Data Analyst focused on KPI analysis, revenue insights, and business-driven decision making.
+Skilled in SQL, Excel, and Python for solving real-world data problems.
 </p>
 
 <div class="socials">
@@ -79,57 +78,34 @@ Experienced in SQL, Excel, and Python with strong analytical thinking and proble
 <section id="about" class="reveal">
 <h2 class="section-title">About Me</h2>
 <p>
-I specialize in data-driven decision making, KPI reporting, and revenue analytics.
-My workflow includes understanding business problems, cleaning data, performing analysis, and delivering actionable insights.
+I specialize in analyzing business data, identifying trends, and generating actionable insights.
+My work focuses on solving real-world problems using structured data analysis techniques.
 </p>
-</section>
-
-<section id="internship" class="reveal">
-<h2 class="section-title">Virtual Internship</h2>
-<div class="card">
-<h3>Data Visualization & Analytics – Star Performer</h3>
-<p>Completed internship focused on dashboards, KPI reporting, and trend analysis.</p>
-<p>Recognized for analytical clarity and structured reporting.</p>
-</div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="reveal">
-<h2 class="section-title">Featured Projects</h2>
+<h2 class="section-title">Key Business Projects</h2>
 
 <div class="card">
-<h3>Myntra Sales & Revenue Analysis</h3>
-<p><strong>Tools:</strong> Excel, SQL</p>
-<p>Analyzed revenue trends, category contribution, and KPI metrics to identify high-performing segments.</p>
-<a href="https://github.com/akashanand07/myntra-sales-analysis" target="_blank">🔗 View Project</a>
+<h3>Myntra Product Intelligence Dashboard</h3>
+<p><strong>Tools:</strong> SQL, Python, Power BI</p>
+<p>Built an end-to-end analytics solution to analyze product performance, pricing trends, and category insights.</p>
+<a href="https://github.com/akashanand07/myntra-product-intelligence-dashboard" target="_blank">🔗 View Project</a>
 </div>
 
 <div class="card">
-<h3>Conversion Funnel Analysis</h3>
-<p><strong>Tools:</strong> Excel, SQL</p>
-<p>Identified user drop-offs and optimized conversion stages to improve business performance.</p>
-<a href="https://github.com/akashanand07/conversion-funnel-analysis" target="_blank">🔗 View Project</a>
+<h3>E-commerce Funnel & Conversion Analysis</h3>
+<p><strong>Tools:</strong> SQL, Excel</p>
+<p>Analyzed user journey across funnel stages and identified key drop-offs impacting conversions.</p>
+<a href="https://github.com/akashanand07/E-commerce-Funnel-Conversion-Analysis-" target="_blank">🔗 View Project</a>
 </div>
 
 <div class="card">
-<h3>PhonePe Pulse Data Analysis</h3>
-<p><strong>Tools:</strong> SQL</p>
-<p>Analyzed state-wise digital payment trends and growth patterns.</p>
-<a href="https://github.com/akashanand07/phonepe-analysis" target="_blank">🔗 View Project</a>
-</div>
-
-<div class="card">
-<h3>AI vs Human Writing Detection</h3>
-<p><strong>Tools:</strong> Python, Machine Learning</p>
-<p>Developed NLP model to classify AI vs human-generated text.</p>
-<a href="https://github.com/akashanand07/ai-text-classifier" target="_blank">🔗 View Project</a>
-</div>
-
-<div class="card">
-<h3>Bitcoin Sentiment Analysis</h3>
-<p><strong>Tools:</strong> Python</p>
-<p>Analyzed relationship between market sentiment and price volatility.</p>
-<a href="https://github.com/akashanand07/bitcoin-sentiment-analysis" target="_blank">🔗 View Project</a>
+<h3>PhonePe Statewise Transaction Analytics</h3>
+<p><strong>Tools:</strong> SQL, Power BI</p>
+<p>Explored state-level transaction trends and digital payment growth patterns in India.</p>
+<a href="https://github.com/akashanand07/Phonepe-Statewise-Transaction-Analytics" target="_blank">🔗 View Project</a>
 </div>
 
 </section>
@@ -142,14 +118,14 @@ My workflow includes understanding business problems, cleaning data, performing 
 <span>Python</span>
 <span>Power BI</span>
 <span>Data Cleaning</span>
-<span>KPI Reporting</span>
 <span>EDA</span>
+<span>KPI Analysis</span>
 </div>
 </section>
 
 <section class="cta reveal">
-<h2>Open to Data Analyst Opportunities</h2>
-<p>Actively seeking entry-level roles.</p>
+<h2>Open to Opportunities</h2>
+<p>Actively looking for Data Analyst roles.</p>
 </section>
 
 <section id="contact" class="reveal">
@@ -168,8 +144,7 @@ var reveals = document.querySelectorAll('.reveal');
 for (var i = 0; i < reveals.length; i++) {
 var windowHeight = window.innerHeight;
 var elementTop = reveals[i].getBoundingClientRect().top;
-var elementVisible = 100;
-if (elementTop < windowHeight - elementVisible) {
+if (elementTop < windowHeight - 100) {
 reveals[i].classList.add('active');
 }
 }
