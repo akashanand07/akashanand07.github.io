@@ -3,328 +3,553 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akash Anand | Data Analyst</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+<title>Akash Anand — Data Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
-body{background:linear-gradient(135deg,#0f172a,#020617);color:#f8fafc;}
+:root {
+  --bg: #050810;
+  --surface: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.08);
+  --accent: #00d4ff;
+  --accent2: #7c3aed;
+  --accent3: #10b981;
+  --text: #f0f4ff;
+  --muted: #6b7a99;
+  --heading: 'Syne', sans-serif;
+  --body: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.7;cursor:none;overflow-x:hidden;}
 
-nav{position:fixed;width:100%;top:0;background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);display:flex;justify-content:space-between;padding:18px 8%;z-index:1000;}
-nav a{color:#cbd5e1;text-decoration:none;margin-left:25px;font-weight:500;}
-nav a:hover{color:#38bdf8;}
+#cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:screen;}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(0,212,255,0.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;}
+#canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.3;}
 
-section{padding:110px 8%;}
+.blob{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0;opacity:.1;}
+.blob1{width:600px;height:600px;background:var(--accent2);top:-200px;right:-150px;}
+.blob2{width:400px;height:400px;background:var(--accent);bottom:5%;left:-100px;}
 
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;}
-.hero h1{font-size:58px;font-weight:800;background:linear-gradient(90deg,#38bdf8,#6366f1);-webkit-background-clip:text;color:transparent;}
-.hero h2{margin-top:15px;color:#94a3b8;font-size:18px;}
-.hero p{margin-top:20px;max-width:650px;color:#cbd5e1;line-height:1.6;}
+nav{position:fixed;width:100%;top:0;display:flex;justify-content:space-between;align-items:center;padding:22px 6%;z-index:100;transition:background .4s;}
+nav.scrolled{background:rgba(5,8,16,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--heading);font-size:18px;font-weight:800;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent;}
+.nav-links{display:flex;gap:36px;}
+.nav-links a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;transition:color .2s;}
+.nav-links a:hover{color:var(--accent);}
 
-.socials{margin-top:20px;}
-.socials a{margin:0 10px;color:#cbd5e1;text-decoration:none;}
-.socials a:hover{color:#38bdf8;}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:0 6%;position:relative;z-index:1;}
+.hero-tag{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.hero-tag::before{content:'';display:block;width:30px;height:1px;background:var(--accent);}
+.hero-name{font-family:var(--heading);font-size:clamp(52px,8vw,96px);font-weight:800;line-height:1;letter-spacing:-2px;margin-bottom:10px;}
+.hero-name .line1{color:var(--text);display:block;}
+.hero-name .line2{display:block;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));-webkit-background-clip:text;color:transparent;background-size:200%;animation:gradShift 4s ease infinite;}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero-role{font-family:var(--mono);font-size:14px;color:var(--muted);margin:16px 0 28px;letter-spacing:.05em;}
+.hero-role span{color:var(--text);}
+.hero-desc{max-width:520px;color:#8892aa;font-size:16px;line-height:1.75;margin-bottom:40px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:6px;font-family:var(--mono);font-size:13px;letter-spacing:.05em;font-weight:500;text-decoration:none;transition:all .25s;position:relative;overflow:hidden;}
+.btn-glow{background:var(--accent);color:#000;}
+.btn-glow::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.2);transform:translateX(-100%);transition:transform .3s;}
+.btn-glow:hover::before{transform:translateX(0);}
+.btn-glow:hover{box-shadow:0 0 30px rgba(0,212,255,.5);transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+.hero-stats{margin-top:60px;display:flex;gap:40px;flex-wrap:wrap;}
+.stat-num{font-family:var(--heading);font-size:28px;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent;}
+.stat-label{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;animation:bob 2s ease infinite;}
+.scroll-hint::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-.section-title{font-size:30px;margin-bottom:35px;position:relative;display:inline-block;}
-.section-title::after{content:"";position:absolute;left:0;bottom:-8px;width:60%;height:3px;background:linear-gradient(90deg,#38bdf8,#6366f1);}
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;background:rgba(0,212,255,.03);position:relative;z-index:1;}
+.marquee-track{display:flex;gap:40px;white-space:nowrap;animation:marquee 22s linear infinite;}
+.marquee-track span{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+.marquee-track .dot{color:var(--accent);}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-.card{background:rgba(255,255,255,0.05);padding:25px;border-radius:16px;margin-bottom:25px;border:1px solid rgba(255,255,255,0.08);transition:0.3s;}
-.card:hover{transform:translateY(-6px);border-color:#38bdf8;}
-.card h3{color:#38bdf8;margin-bottom:10px;}
-.card p{color:#cbd5e1;margin-bottom:6px;font-size:14px;}
+.section{padding:120px 6%;position:relative;z-index:1;}
+.section-header{margin-bottom:60px;}
+.section-num{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+.section-num::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
+.section-title{font-family:var(--heading);font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-1px;line-height:1.1;}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
 
-.card a{display:inline-block;margin-top:10px;color:#38bdf8;font-weight:600;text-decoration:none;}
-.card a:hover{text-decoration:underline;}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about-text p{color:#8892aa;line-height:1.85;margin-bottom:20px;}
+.about-text strong{color:var(--accent);}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+.tag{padding:6px 14px;border-radius:4px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.05em;}
+.about-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px;position:relative;overflow:hidden;}
+.about-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle at 70% 30%,rgba(0,212,255,.05) 0%,transparent 60%);pointer-events:none;}
+.about-card-item{display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);}
+.about-card-item:last-child{border-bottom:none;}
+.about-icon{width:38px;height:38px;border-radius:8px;background:rgba(0,212,255,.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.about-card-title{font-size:13px;color:var(--text);font-weight:600;}
+.about-card-sub{font-size:12px;color:var(--muted);font-family:var(--mono);}
 
-.skills{display:flex;flex-wrap:wrap;gap:10px;}
-.skills span{padding:8px 14px;background:rgba(99,102,241,0.15);border-radius:20px;font-size:13px;}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;transition:border-color .3s,transform .3s;}
+.skill-cat:hover{border-color:rgba(0,212,255,.3);transform:translateY(-4px);}
+.skill-cat-title{font-family:var(--mono);font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.15em;margin-bottom:16px;}
+.skill-list{display:flex;flex-direction:column;gap:10px;}
+.skill-item{display:flex;align-items:center;justify-content:space-between;}
+.skill-name{font-size:13px;color:var(--text);}
+.skill-bar{width:80px;height:3px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;}
+.skill-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform .9s ease;}
+.skill-cat.animated .skill-fill{transform:scaleX(var(--w));}
 
-.cta{text-align:center;background:rgba(255,255,255,0.05);padding:50px;border-radius:18px;}
+/* PROJECTS */
+.project-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .3s;cursor:pointer;margin-bottom:8px;}
+.project-item:hover{border-color:rgba(0,212,255,.25);}
+.project-item.open{border-color:rgba(0,212,255,.4);}
+.project-header{display:flex;align-items:center;justify-content:space-between;padding:28px 32px;transition:background .2s;}
+.project-item.open .project-header{background:rgba(0,212,255,.04);}
+.project-left{display:flex;align-items:center;gap:20px;}
+.project-num{font-family:var(--mono);font-size:12px;color:var(--muted);width:28px;}
+.project-name{font-family:var(--heading);font-size:18px;font-weight:700;letter-spacing:-.3px;margin-bottom:4px;}
+.project-tools{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.05em;}
+.project-right{display:flex;align-items:center;gap:20px;}
+.project-kpis{display:flex;gap:20px;}
+.kpi-val{font-family:var(--heading);font-size:18px;font-weight:800;color:var(--text);}
+.kpi-label{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.project-toggle{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;transition:all .3s;flex-shrink:0;}
+.project-item.open .project-toggle{background:var(--accent);color:#000;border-color:var(--accent);transform:rotate(45deg);}
+.project-body{max-height:0;overflow:hidden;transition:max-height .5s ease;}
+.project-item.open .project-body{max-height:500px;}
+.project-body-inner{padding:28px 32px 32px;display:grid;grid-template-columns:1fr 1fr;gap:32px;border-top:1px solid var(--border);}
+.pb-section-title{font-family:var(--mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px;}
+.pb-list{list-style:none;}
+.pb-list li{display:flex;align-items:flex-start;gap:8px;font-size:13.5px;color:#8892aa;margin-bottom:8px;line-height:1.5;}
+.pb-list li::before{content:'→';color:var(--accent);flex-shrink:0;margin-top:1px;font-size:12px;}
+.project-link{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;color:var(--accent);text-decoration:none;border:1px solid rgba(0,212,255,.3);padding:8px 16px;border-radius:4px;margin-top:8px;transition:all .2s;}
+.project-link:hover{background:rgba(0,212,255,.1);}
 
-footer{text-align:center;padding:30px 0;background:rgba(255,255,255,0.05);color:#94a3b8;}
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;align-items:flex-start;gap:16px;transition:border-color .3s,transform .3s;}
+.cert-card:hover{border-color:rgba(0,212,255,.3);transform:translateY(-4px);}
+.cert-icon{width:42px;height:42px;border-radius:10px;background:rgba(0,212,255,.1);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.cert-org{font-family:var(--mono);font-size:10px;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+.cert-name{font-size:13px;color:var(--text);font-weight:600;line-height:1.4;margin-bottom:4px;}
+.cert-date{font-family:var(--mono);font-size:11px;color:var(--muted);}
 
-.reveal{opacity:0;transform:translateY(40px);transition:0.8s;}
-.reveal.active{opacity:1;transform:translateY(0);}
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.contact-big{font-family:var(--heading);font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-1px;line-height:1.2;margin-bottom:20px;}
+.contact-big span{color:var(--accent);}
+.contact-sub{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:32px;}
+.contact-links{display:flex;flex-direction:column;gap:12px;}
+.contact-link{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text);padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:10px;transition:all .25s;}
+.contact-link:hover{border-color:rgba(0,212,255,.4);transform:translateX(6px);}
+.contact-link-label{font-family:var(--mono);font-size:10px;color:var(--muted);}
+.contact-link-val{font-size:13px;color:var(--text);}
+.availability{background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(0,212,255,.05));border:1px solid rgba(16,185,129,.25);border-radius:12px;padding:28px;margin-bottom:24px;}
+.avail-dot{display:inline-block;width:8px;height:8px;background:var(--accent3);border-radius:50%;margin-right:8px;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 0 10px var(--accent3)}50%{box-shadow:0 0 20px var(--accent3)}}
+.avail-title{font-family:var(--heading);font-size:16px;font-weight:700;margin-bottom:6px;}
+.avail-text{font-size:13px;color:var(--muted);}
+
+footer{padding:32px 6%;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;}
+.footer-text{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--accent);}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  .about-grid,.contact-grid,.project-body-inner{grid-template-columns:1fr;}
+  .project-kpis{display:none;}
+  .hero-stats{flex-wrap:wrap;gap:24px;}
+  nav{padding:18px 5%;}
+  .section{padding:80px 5%;}
+  #hero{padding:0 5%;}
+}
 </style>
 </head>
-
 <body>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="canvas"></canvas>
 
-<nav>
-<div><strong>Akash Anand</strong></div>
-<div>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
-</div>
+<nav id="nav">
+  <div class="nav-logo">AA.</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 
-<section class="hero">
-<h1>Akash Anand</h1>
-<h2>Data Analyst | SQL | Excel | Python</h2>
-<p>
-Data Analyst focused on KPI analysis, revenue insights, and business-driven decision making.
-Skilled in SQL, Excel, and Python for solving real-world data problems.
-</p>
-
-<div class="socials">
-<a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank">LinkedIn</a>
-<a href="https://github.com/akashanand07" target="_blank">GitHub</a>
-</div>
+<section id="hero">
+  <div class="hero-tag">Data Analyst</div>
+  <h1 class="hero-name">
+    <span class="line1">Akash</span>
+    <span class="line2">Anand</span>
+  </h1>
+  <p class="hero-role"><span>SQL</span> · <span>Python</span> · <span>Power BI</span> · <span>Tableau</span> · <span>Excel</span></p>
+  <p class="hero-desc">Turning raw data into decisions that move the needle. Specialized in KPI analysis, funnel optimization, and business intelligence dashboards.</p>
+  <div class="hero-btns">
+    <a href="Akash_Anand_Resume.pdf" download class="btn btn-glow">⬇ Download Resume</a>
+    <a href="#projects" class="btn btn-ghost">View Projects →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">3M+</div><div class="stat-label">Records Analyzed</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Case Studies</div></div>
+    <div class="stat"><div class="stat-num">IIT</div><div class="stat-label">Mandi — DS&ML</div></div>
+  </div>
+  <div class="scroll-hint">scroll</div>
 </section>
 
-<section id="projects" class="reveal">
-<h2 class="section-title">Case Study Projects</h2>
-
-<!-- MYNTRA -->
-<div class="card">
-<h3>Myntra Product Intelligence Dashboard (End-to-End Data Analytics Project)</h3>
-
-<p><strong>Project Overview:</strong> 
-This is a complete end-to-end data analytics case study built on a large Myntra fashion dataset (~526,000 products). 
-The objective was to analyze product performance, pricing strategies, and customer engagement to generate actionable business insights.
-The project follows a full analytics pipeline including Data Cleaning (Python), Business Analysis (SQL), and Visualization (Power BI).
-</p>
-
-<p><strong>Business Objective:</strong></p>
-<ul>
-<li>Understand product and category performance in an online marketplace</li>
-<li>Analyze pricing and discount strategies</li>
-<li>Identify factors influencing customer engagement (ratings & reviews)</li>
-<li>Detect brand dominance and supply concentration</li>
-</ul>
-
-<p><strong>Dataset Information:</strong></p>
-<ul>
-<li>Source: Kaggle – Myntra Fashion Dataset</li>
-<li>Size: 526K+ products</li>
-<li>Major challenge: 300K+ missing values in ratings & reviews</li>
-</ul>
-
-<p><strong>Tools & Technologies:</strong> Python (Pandas, NumPy), SQL (MySQL), Power BI, Excel</p>
-
-<p><strong>Phase 1: Data Cleaning & Exploration (Python):</strong></p>
-<ul>
-<li>Removed irrelevant columns (URLs, descriptions)</li>
-<li>Handled 300K+ missing values</li>
-<li>Fixed pricing inconsistencies (original vs discounted price)</li>
-<li>Created new feature: Discount Percentage</li>
-<li>Performed EDA (outliers, distribution, correlation)</li>
-</ul>
-
-<p><strong>Phase 2: Data Analysis (SQL):</strong></p>
-<ul>
-<li>Category-wise product distribution analysis</li>
-<li>Brand dominance and inventory share</li>
-<li>Discount strategy comparison</li>
-<li>Relationship between price, discount, and ratings</li>
-<li>Used SQL window functions for ranking</li>
-</ul>
-
-<p><strong>Phase 3: Dashboard (Power BI):</strong></p>
-<ul>
-<li>KPI tracking: Total Products, Brands, Avg Ratings</li>
-<li>Category distribution and brand analysis</li>
-<li>Price vs Rating insights</li>
-<li>Customer engagement tracking</li>
-</ul>
-
-<p><strong>Key Insights:</strong></p>
-<ul>
-<li>Western Wear & Indian Wear drive highest engagement</li>
-<li>Few brands dominate marketplace inventory</li>
-<li>Discounts do not guarantee better ratings</li>
-<li>Ratings remain stable (~4.1–4.2)</li>
-<li>Premium segments controlled by fewer strong brands</li>
-</ul>
-
-<p><strong>Business Implications:</strong></p>
-<ul>
-<li>Opportunity for niche category expansion</li>
-<li>Focus on brand trust instead of heavy discounts</li>
-<li>Optimize inventory based on high-performing categories</li>
-</ul>
-
-<a href="https://github.com/akashanand07/myntra-product-intelligence-dashboard" target="_blank">🔗 View Project</a>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>SQL</span><span class="dot">✦</span><span>Python</span><span class="dot">✦</span><span>Power BI</span><span class="dot">✦</span><span>Tableau</span><span class="dot">✦</span><span>Advanced Excel</span><span class="dot">✦</span><span>EDA</span><span class="dot">✦</span><span>KPI Tracking</span><span class="dot">✦</span><span>ETL</span><span class="dot">✦</span><span>Data Modeling</span><span class="dot">✦</span><span>Dashboard Development</span><span class="dot">✦</span>
+    <span>SQL</span><span class="dot">✦</span><span>Python</span><span class="dot">✦</span><span>Power BI</span><span class="dot">✦</span><span>Tableau</span><span class="dot">✦</span><span>Advanced Excel</span><span class="dot">✦</span><span>EDA</span><span class="dot">✦</span><span>KPI Tracking</span><span class="dot">✦</span><span>ETL</span><span class="dot">✦</span><span>Data Modeling</span><span class="dot">✦</span><span>Dashboard Development</span><span class="dot">✦</span>
+  </div>
 </div>
 
-
-<!-- FUNNEL -->
-<div class="card">
-<h3>E-commerce Funnel & Conversion Analysis</h3>
-
-<p><strong>Project Overview:</strong> 
-This project analyzes user behavior across an e-commerce funnel to identify drop-offs, conversion rates, and revenue leakage using SQL and Power BI.
-</p>
-
-<p><strong>Problem Statement:</strong></p>
-<ul>
-<li>Identify major drop-off points in funnel</li>
-<li>Analyze conversion rates across stages</li>
-<li>Understand user purchase behavior</li>
-<li>Improve revenue through optimization</li>
-</ul>
-
-<p><strong>Dataset Overview:</strong></p>
-<ul>
-<li>~3 Million user interaction records</li>
-<li>Event types: Product View, Add to Cart, Purchase</li>
-</ul>
-
-<p><strong>Key Business Questions:</strong></p>
-<ul>
-<li>Where do users drop off?</li>
-<li>What are conversion rates?</li>
-<li>How long does purchase take?</li>
-<li>Which products have low conversion?</li>
-</ul>
-
-<p><strong>Analysis:</strong></p>
-<ul>
-<li>Tracked user journey across funnel stages</li>
-<li>Calculated stage-wise conversion rates</li>
-<li>Measured time-to-purchase</li>
-<li>Compared product performance</li>
-</ul>
-
-<p><strong>Key Insights:</strong></p>
-<ul>
-<li>97% drop at View → Cart stage</li>
-<li>Cart → Purchase conversion (~32%) strong</li>
-<li>Average purchase time ~95 hours</li>
-<li>High traffic ≠ high conversion</li>
-</ul>
-
-<p><strong>Business Recommendations:</strong></p>
-<ul>
-<li>Improve product page UX</li>
-<li>Use retargeting strategies</li>
-<li>Focus on high-converting products</li>
-<li>Optimize top-of-funnel engagement</li>
-</ul>
-
-<a href="https://github.com/akashanand07/E-commerce-Funnel-Conversion-Analysis-" target="_blank">🔗 View Project</a>
-</div>
-
-
-<!-- PHONEPE -->
-<div class="card">
-<h3>PhonePe Statewise Transaction Analytics</h3>
-
-<p><strong>Project Overview:</strong> 
-Analyzed digital payment adoption trends across Indian states to understand transaction growth patterns and regional performance.
-</p>
-
-<p><strong>Problem Statement:</strong></p>
-<ul>
-<li>Understand regional adoption of digital payments</li>
-<li>Identify high-growth states</li>
-<li>Analyze transaction trends</li>
-</ul>
-
-<p><strong>Dataset:</strong></p>
-<ul>
-<li>State-wise transaction data</li>
-<li>Metrics: transaction volume, value, growth</li>
-</ul>
-
-<p><strong>Analysis:</strong></p>
-<ul>
-<li>Performed SQL aggregation</li>
-<li>Identified growth trends</li>
-<li>Visualized insights using Power BI</li>
-</ul>
-
-<p><strong>Key Insights:</strong></p>
-<ul>
-<li>Top states dominate transaction volume</li>
-<li>Tier-2 and Tier-3 regions growing rapidly</li>
-<li>Some states show saturation trends</li>
-</ul>
-
-<p><strong>Business Impact:</strong></p>
-<ul>
-<li>Supports regional expansion strategy</li>
-<li>Helps target high-growth markets</li>
-<li>Improves fintech decision-making</li>
-</ul>
-
-<a href="https://github.com/akashanand07/Phonepe-Statewise-Transaction-Analytics" target="_blank">🔗 View Project</a>
-</div>
-
-</section>
-  
-<section id="certificates" class="reveal">
-<h2 class="section-title">Certifications</h2>
-
-<div class="cert-grid">
-
-<div class="cert-card">
-<h3>Data Visualization & Business Insights – Tata (Forage)</h3>
-<img src="Certificates/tata.jpeg">
-</div>
-
-<div class="cert-card">
-<h3>Python Data Analysis (NumPy, Pandas, Matplotlib) – Udemy</h3>
-<img src="Certificates/Data.jpeg">
-</div>
-
-<div class="cert-card">
-<h3>Business Analytics Virtual Experience – British Airways</h3>
-<img src="Certificates/British.png">
-</div>
-
-<div class="cert-card">
-<h3>Data Analytics Certification – Saint Louis University</h3>
-<img src="Certificates/Saint.png">
-</div>
-
-</div>
+<section id="about" class="section reveal">
+  <div class="section-header">
+    <div class="section-num">01 / About</div>
+    <h2 class="section-title">Who I Am</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Hi, I'm <strong>Akash Anand</strong> — a data analyst who loves digging into messy datasets and surfacing insights that actually change how businesses operate.</p>
+      <p>I completed a <strong>Minor in Data Science & Machine Learning from IIT Mandi</strong> and have built end-to-end analytics projects across e-commerce, fintech, and retail — analyzing over <strong>3 million+ records</strong>.</p>
+      <p>Currently looking for <strong>full-time remote opportunities</strong> where I can contribute to data-driven teams and grow fast.</p>
+      <div class="about-tags">
+        <span class="tag">Open to WFH</span>
+        <span class="tag">Fresher</span>
+        <span class="tag">India</span>
+        <span class="tag">Available Now</span>
+      </div>
+    </div>
+    <div class="about-card">
+      <div class="about-card-item">
+        <div class="about-icon">🎓</div>
+        <div><div class="about-card-title">Minor — Data Science & ML</div><div class="about-card-sub">IIT Mandi · 2024–2025</div></div>
+      </div>
+      <div class="about-card-item">
+        <div class="about-icon">📊</div>
+        <div><div class="about-card-title">Data Visualisation — TATA Forage</div><div class="about-card-sub">Star Performer · Aug 2025</div></div>
+      </div>
+      <div class="about-card-item">
+        <div class="about-icon">✈️</div>
+        <div><div class="about-card-title">Data Science Simulation — British Airways</div><div class="about-card-sub">Forage · Sep 2025</div></div>
+      </div>
+      <div class="about-card-item">
+        <div class="about-icon">🏛️</div>
+        <div><div class="about-card-title">Data Visualization Internship</div><div class="about-card-sub">Saint Louis University · Star Performer</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<div class="divider"></div>
 
-<section id="skills" class="reveal">
-<h2 class="section-title">Skills</h2>
-<div class="skills">
-<span>SQL</span>
-<span>Excel</span>
-<span>Python</span>
-<span>Power BI</span>
-<span>Data Cleaning</span>
-<span>EDA</span>
-<span>KPI Analysis</span>
-</div>
+<section id="skills" class="section reveal">
+  <div class="section-header">
+    <div class="section-num">02 / Skills</div>
+    <h2 class="section-title">Tech Stack</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-cat">
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" style="--w:0.92"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" style="--w:0.82"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Advanced Excel</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">Visualization</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-name">Power BI</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill" style="--w:0.78"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Dashboard Dev</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">Analytics</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-name">EDA</span><div class="skill-bar"><div class="skill-fill" style="--w:0.90"></div></div></div>
+        <div class="skill-item"><span class="skill-name">KPI Tracking</span><div class="skill-bar"><div class="skill-fill" style="--w:0.87"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Data Modeling</span><div class="skill-bar"><div class="skill-fill" style="--w:0.80"></div></div></div>
+      </div>
+    </div>
+    <div class="skill-cat">
+      <div class="skill-cat-title">SQL Techniques</div>
+      <div class="skill-list">
+        <div class="skill-item"><span class="skill-name">Window Functions</span><div class="skill-bar"><div class="skill-fill" style="--w:0.88"></div></div></div>
+        <div class="skill-item"><span class="skill-name">CTEs</span><div class="skill-bar"><div class="skill-fill" style="--w:0.86"></div></div></div>
+        <div class="skill-item"><span class="skill-name">ETL</span><div class="skill-bar"><div class="skill-fill" style="--w:0.82"></div></div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="cta reveal">
-<h2>Open to Opportunities</h2>
-<p>Actively looking for Data Analyst roles.</p>
+<div class="divider"></div>
+
+<section id="projects" class="section reveal">
+  <div class="section-header">
+    <div class="section-num">03 / Projects</div>
+    <h2 class="section-title">Case Studies</h2>
+  </div>
+
+  <div class="project-item" onclick="toggleProject(this)">
+    <div class="project-header">
+      <div class="project-left">
+        <div class="project-num">01</div>
+        <div><div class="project-name">E-commerce Funnel & Conversion Analysis</div><div class="project-tools">SQL · Power BI</div></div>
+      </div>
+      <div class="project-right">
+        <div class="project-kpis">
+          <div class="kpi"><div class="kpi-val">3M+</div><div class="kpi-label">Records</div></div>
+          <div class="kpi"><div class="kpi-val">97%</div><div class="kpi-label">Drop-off Found</div></div>
+          <div class="kpi"><div class="kpi-val">32%</div><div class="kpi-label">Cart→Purchase</div></div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-body-inner">
+        <div>
+          <div class="pb-section-title">What I Did</div>
+          <ul class="pb-list">
+            <li>Analyzed 3M+ user interaction records across funnel stages</li>
+            <li>Identified 97% drop-off at View → Cart — major revenue leakage</li>
+            <li>Calculated stage-wise conversion using SQL aggregations</li>
+            <li>Found average purchase time of 95 hours from first view</li>
+            <li>Built Power BI dashboard with drill-down KPI tracking</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pb-section-title">Business Impact</div>
+          <ul class="pb-list">
+            <li>Pinpointed exact funnel stage causing maximum revenue loss</li>
+            <li>Data supports retargeting strategy at View → Cart gap</li>
+            <li>Enabled product page UX optimization prioritization</li>
+          </ul>
+          <a href="https://github.com/akashanand07/E-commerce-Funnel-Conversion-Analysis-" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-item" onclick="toggleProject(this)">
+    <div class="project-header">
+      <div class="project-left">
+        <div class="project-num">02</div>
+        <div><div class="project-name">Myntra Product Intelligence Dashboard</div><div class="project-tools">Python · SQL · Power BI</div></div>
+      </div>
+      <div class="project-right">
+        <div class="project-kpis">
+          <div class="kpi"><div class="kpi-val">526K+</div><div class="kpi-label">Products</div></div>
+          <div class="kpi"><div class="kpi-val">300K+</div><div class="kpi-label">Nulls Cleaned</div></div>
+          <div class="kpi"><div class="kpi-val">4.1</div><div class="kpi-label">Avg Rating</div></div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-body-inner">
+        <div>
+          <div class="pb-section-title">What I Did</div>
+          <ul class="pb-list">
+            <li>Cleaned 526K+ product records — handled 300K+ missing values in Python</li>
+            <li>Engineered DiscountPercent feature; ran correlation & outlier analysis</li>
+            <li>Identified top 20% brands driving majority of inventory (Pareto)</li>
+            <li>SQL window functions for brand ranking & category share</li>
+            <li>End-to-end Power BI dashboard for stakeholder reporting</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pb-section-title">Business Impact</div>
+          <ul class="pb-list">
+            <li>Proved discounts have minimal rating impact — saves promo budget</li>
+            <li>Highlighted niche category expansion opportunities</li>
+            <li>Enabled data-driven pricing & inventory strategy</li>
+          </ul>
+          <a href="https://github.com/akashanand07/myntra-product-intelligence-dashboard" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-item" onclick="toggleProject(this)">
+    <div class="project-header">
+      <div class="project-left">
+        <div class="project-num">03</div>
+        <div><div class="project-name">PhonePe Statewise Transaction Analytics</div><div class="project-tools">SQL · Power BI</div></div>
+      </div>
+      <div class="project-right">
+        <div class="project-kpis">
+          <div class="kpi"><div class="kpi-val">5 Yrs</div><div class="kpi-label">2020–2024</div></div>
+          <div class="kpi"><div class="kpi-val">YoY</div><div class="kpi-label">Growth Analysis</div></div>
+          <div class="kpi"><div class="kpi-val">Q4</div><div class="kpi-label">Peak Season</div></div>
+        </div>
+        <div class="project-toggle">+</div>
+      </div>
+    </div>
+    <div class="project-body">
+      <div class="project-body-inner">
+        <div>
+          <div class="pb-section-title">What I Did</div>
+          <ul class="pb-list">
+            <li>Analyzed 5-year (2020–2024) statewise digital payment trends</li>
+            <li>YoY growth analysis using SQL window functions, CTEs & aggregations</li>
+            <li>Identified P2P and Merchant Payments as dominant categories</li>
+            <li>Detected Q4 as peak transaction period — seasonal trend signal</li>
+            <li>Built Power BI dashboard for regional performance visualization</li>
+          </ul>
+        </div>
+        <div>
+          <div class="pb-section-title">Business Impact</div>
+          <ul class="pb-list">
+            <li>Highlighted high-growth states for regional expansion focus</li>
+            <li>Tier-2/3 cities showing rapid adoption — untapped opportunity</li>
+            <li>Seasonal insight supports Q4 campaign timing strategy</li>
+          </ul>
+          <a href="https://github.com/akashanand07/Phonepe-Statewise-Transaction-Analytics" target="_blank" class="project-link">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="reveal">
-<h2 class="section-title">Contact</h2>
-<p>Email: akashanand33qq@gmail.com</p>
-<p><a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank">LinkedIn Profile</a></p>
+<div class="divider"></div>
+
+<section id="certifications" class="section reveal">
+  <div class="section-header">
+    <div class="section-num">04 / Certifications</div>
+    <h2 class="section-title">Credentials</h2>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">📊</div>
+      <div><div class="cert-org">TATA · Forage</div><div class="cert-name">Data Visualisation: Empowering Business with Effective Insights</div><div class="cert-date">Aug 2025 · Star Performer</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">✈️</div>
+      <div><div class="cert-org">British Airways · Forage</div><div class="cert-name">Data Science Job Simulation</div><div class="cert-date">Sep 2025</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🏛️</div>
+      <div><div class="cert-org">Saint Louis University</div><div class="cert-name">Data Visualization Virtual Internship</div><div class="cert-date">Star Performer</div></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🐍</div>
+      <div><div class="cert-org">Udemy</div><div class="cert-name">Python Data Analysis — NumPy, Pandas, Matplotlib</div><div class="cert-date">2025</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="contact" class="section reveal">
+  <div class="section-header">
+    <div class="section-num">05 / Contact</div>
+    <h2 class="section-title">Let's Connect</h2>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <div class="contact-big">Open to <span>remote</span> opportunities</div>
+      <p class="contact-sub">If you're looking for a data analyst who can go from raw CSV to boardroom-ready dashboard — let's talk.</p>
+      <div class="contact-links">
+        <a href="mailto:akashanand33qq@gmail.com" class="contact-link">
+          <span style="font-size:18px">📧</span>
+          <div><div class="contact-link-label">Email</div><div class="contact-link-val">akashanand33qq@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank" class="contact-link">
+          <span style="font-size:18px">💼</span>
+          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-val">akash-anand-436615327</div></div>
+        </a>
+        <a href="https://github.com/akashanand07" target="_blank" class="contact-link">
+          <span style="font-size:18px">🐙</span>
+          <div><div class="contact-link-label">GitHub</div><div class="contact-link-val">akashanand07</div></div>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="availability">
+        <div style="margin-bottom:12px;"><span class="avail-dot"></span><span style="font-family:var(--mono);font-size:11px;color:var(--accent3);text-transform:uppercase;letter-spacing:.1em;">Available Now</span></div>
+        <div class="avail-title">Open to Full-Time Remote Roles</div>
+        <p class="avail-text">Looking for Data Analyst / Business Analyst positions. Can start immediately.</p>
+      </div>
+      <a href="Akash_Anand_Resume.pdf" download class="btn btn-glow" style="width:100%;justify-content:center;">⬇ Download Resume</a>
+    </div>
+  </div>
 </section>
 
 <footer>
-© 2026 Akash Anand
+  <div class="footer-text">© 2026 Akash Anand</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/akash-anand-436615327/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/akashanand07" target="_blank">GitHub</a>
+    <a href="mailto:akashanand33qq@gmail.com">Email</a>
+  </div>
 </footer>
 
 <script>
-window.addEventListener('scroll', function() {
-var reveals = document.querySelectorAll('.reveal');
-for (var i = 0; i < reveals.length; i++) {
-var windowHeight = window.innerHeight;
-var elementTop = reveals[i].getBoundingClientRect().top;
-if (elementTop < windowHeight - 100) {
-reveals[i].classList.add('active');
-}
-}
+// CURSOR
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
+document.querySelectorAll('a,button,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='18px';cursor.style.height='18px';ring.style.width='50px';ring.style.height='50px';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
 });
-</script>
 
+// NAV SCROLL
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60));
+
+// PARTICLES
+const canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');
+function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+resize(); window.addEventListener('resize',resize);
+const pts=Array.from({length:65},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.5+.4,o:Math.random()*.5+.15}));
+(function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  pts.forEach((p,i)=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width)p.vx*=-1;
+    if(p.y<0||p.y>canvas.height)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(0,212,255,${p.o})`;ctx.fill();
+    pts.slice(i+1).forEach(q=>{
+      const d=Math.hypot(p.x-q.x,p.y-q.y);
+      if(d<140){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle=`rgba(0,212,255,${.07*(1-d/140)})`;ctx.lineWidth=.5;ctx.stroke();}
+    });
+  });
+  requestAnimationFrame(draw);
+})();
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// SKILL BARS
+const skillObs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting)e.target.classList.add('animated');
+}),{threshold:.2});
+document.querySelectorAll('.skill-cat').forEach(el=>skillObs.observe(el));
+
+// PROJECT TOGGLE
+function toggleProject(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.project-item').forEach(p=>p.classList.remove('open'));
+  if(!isOpen)el.classList.add('open');
+}
+</script>
 </body>
 </html>
